@@ -9,8 +9,8 @@ table format.
 - Model: **claude-opus-5**
 - Arms: `none` (baseline) / `dense` / `caveman`
 - 10 prompts × 3 arms × 3 trials = **90 calls**, total spend **$3.13**
-- Raw data: `results/cli_benchmark_20260726_203116.json` (every call, including full text)
-- Runner: `run_cli.py`
+- Raw data: `chat/results/cli_benchmark_20260726_203116.json` (every call, including full text)
+- Runner: `chat/run_cli.py`
 
 ## Results
 
@@ -124,7 +124,7 @@ difference in what is being measured.
   upstream statistic (median of 3, then mean across prompts) does not support them well.
 - **Chat-shaped prompts only.** All 10 are single-turn questions whose entire deliverable is
   prose. This is the maximum-compressible-surface case. On agentic tool-loop tasks where the
-  deliverable is code, the same DENSE skill measured ≈0% reduction (see [`../agentic/`](../agentic/AGENTICBENCHMARK.md), where
+  deliverable is code, the same DENSE skill measured ≈0% reduction (see [`AGENTIC_BENCH.md`](AGENTIC_BENCH.md), where
   visible prose was 0.21% of billed output). Do not generalise 82% to agentic work.
 - **`num_turns: 1` by construction.** Tools are disabled, so this says nothing about
   multi-turn or tool-using behaviour.
@@ -137,5 +137,5 @@ python3 run_cli.py --dry-run
 python3 run_cli.py --arms none dense caveman --trials 3 --model claude-opus-5 --concurrency 4
 ```
 
-Requires the `claude` CLI authenticated (OAuth is fine) and `skills/<arm>.md` for each
-non-baseline arm. Upstream `run.py` and `requirements.txt` are kept alongside for diffing.
+Requires the `claude` CLI authenticated (OAuth is fine) and `chat/skills/<arm>.md` for each
+non-baseline arm. Upstream `run.py` is kept alongside as `chat/run_upstream.py` for diffing.

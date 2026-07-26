@@ -1,6 +1,6 @@
 # DENSE on agentic coding work — t5 benchmark
 
-Companion to [`../chat/CAVEMANBENCHMARK.md`](../chat/CAVEMANBENCHMARK.md), which
+Companion to [`CAVEMAN_BENCHSET.md`](CAVEMAN_BENCHSET.md), which
 measures the same skill on chat-shaped prompts. This one measures it on a long agentic
 tool-loop task where the deliverable is code rather than prose.
 
@@ -11,8 +11,8 @@ Compression still helps when there is barely any prose to compress; it just help
 - Model: **claude-opus-5**
 - Design: 4 control + 4 DENSE, one pass per cell, run concurrently
 - Total spend: **$34.19**
-- Raw data: `t5cli_results_20260726_211753.json`
-- Runner: `run_t5_cli.py` · task harness: `t5-dbengine/` (built by `t5_src.js`)
+- Raw data: `agentic/results/t5cli_results_20260726_211753.json`
+- Runner: `agentic/run_t5_cli.py` · task harness: `agentic/t5-dbengine/` (built by `agentic/t5_src.js`)
 
 ## Results
 
@@ -62,6 +62,41 @@ cannot be read ahead; the prompt instructs the model to treat it as a black box.
 Scoring is binary per run: `node gate.js` prints `COMPLETE: all 21 requirements met` or names
 the requirement it stopped at. This was re-run independently after the benchmark rather than
 taken from the model's self-report.
+
+## Task character: file edits, planned up front, almost no prose
+
+This task is the opposite of a chat prompt, and the numbers say so. Character counts of
+everything the model emitted across the 8 clean runs:
+
+| arm | prose chars | tool-payload chars | of which Write/Edit | prose share of output |
+|---|---:|---:|---:|---:|
+| none | 3,543 | 354,587 | 329,541 (92.9%) | **0.99%** |
+| dense | 1,509 | 291,859 | 238,690 (81.8%) | **0.51%** |
+
+Tool calls, 4 runs per arm:
+
+| arm | Edit | Bash | Read | Write |
+|---|---:|---:|---:|---:|
+| none | 205 | 109 | 24 | 10 |
+| dense | 168 | 116 | 14 | 8 |
+
+Three things follow:
+
+**It is file-edit dominated.** 82–93% of everything the model emitted through tools is file
+content. Prose is ~1% or less — two orders of magnitude below a chat answer, where prose *is*
+the deliverable.
+
+**It is planned, not exploratory.** `Write` fires only ~2 times per run while `Edit` fires
+~42–51 times: the model composes the engine and the test suite in a couple of large planned
+writes, then converges by patching them. `Read` is rare (3–6 per run) — it works from its own
+plan and its memory of what it wrote rather than re-reading the file. The ~27–29 `Bash` calls
+per run are gate verification.
+
+**So the savings cannot be narration.** With prose at ~1%, DENSE's −19% has to come out of
+code, patch size, and hidden deliberation. What is visible: file-edit payload fell **27.6%**
+and `Edit` calls fell **18%**, while the final artifact stayed the same size. The model reached
+an equivalent engine with materially less patching.
+
 
 ### Why this task
 
@@ -187,11 +222,11 @@ done
 ```
 
 Requires the `claude` CLI authenticated (OAuth is fine), Node, and Python 3. `run_t5_cli.py`
-imports `quarantine_user_memory` and `ensure_bench_home` from `../chat/run_cli.py`.
+imports `quarantine_user_memory` and `ensure_bench_home` from `chat/run_cli.py`.
 
 | file | what it is |
 |---|---|
-| `run_t5_cli.py` | benchmark runner |
-| `t5_src.js` | readable source of the 21-requirement gate |
-| `t5-dbengine/` | pristine task template (`gate.js` compiled, `db.js` stub) |
-| `results/` | per-run metrics from the 8 clean runs |
+| `agentic/run_t5_cli.py` | benchmark runner |
+| `agentic/t5_src.js` | readable source of the 21-requirement gate |
+| `agentic/t5-dbengine/` | pristine task template (`gate.js` compiled, `db.js` stub) |
+| `agentic/results/` | per-run metrics from the 8 clean runs |
