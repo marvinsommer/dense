@@ -18,9 +18,20 @@ numbers remain comparable to upstream's.
 
 Retrieved 2026-07-26.
 
-MIT permits redistribution and modification with attribution and license notice; that is the
-purpose of this file. If the caveman authors would prefer these files be fetched at runtime
-rather than vendored, `chat/run_cli.py` can be changed to download them and the copies removed.
+The MIT License requires that its copyright notice and permission notice be included with any
+copy or substantial portion of the software. Upstream's licence is therefore reproduced
+verbatim at [`chat/LICENSE.caveman`](chat/LICENSE.caveman):
+
+> MIT License
+>
+> Copyright (c) 2026 Julius Brussee
+
+That file covers `chat/prompts.json`, `chat/run_upstream.py`, `chat/skills/caveman.md` and the
+derived `chat/run_cli.py`. The repository's own [`LICENSE`](../LICENSE) (Copyright (c) 2026
+Marvin Sommer) covers everything else.
+
+If the caveman authors would prefer these files be fetched at runtime rather than vendored,
+`chat/run_cli.py` can be changed to download them and the copies removed.
 
 ## DENSE
 
