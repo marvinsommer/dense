@@ -14,6 +14,10 @@ table format.
 
 ## Results
 
+![Horizontal grouped bars: output tokens per answer for none, dense and caveman across ten chat prompts. DENSE is the shortest bar on every prompt.](../img/chat-tokens-by-task-dark.svg)
+
+![Horizontal grouped bars: output-token reduction versus the no-skill control. DENSE runs 77-89%, caveman 49-87%.](../img/chat-savings-dark.svg)
+
 | Task | none | dense | caveman | dense saved | caveman saved |
 |------|---:|---:|---:|---:|---:|
 | Explain React re-render bug | 1191 | 204 | 394 | 83% | 67% |
@@ -41,6 +45,8 @@ DENSE beats caveman on all 10 prompts, on caveman's own benchmark.
 | caveman | 690 | 642 | 0.85 | 153 (max 297) | 2.33 | 1606 |
 
 Two things worth noting in that table:
+
+![Column chart: mean run-to-run spread across three trials. none 605 tokens, dense 73, caveman 153.](../img/chat-variance-dark.svg)
 
 **Variance scales with verbosity.** The control arm's three trials on the same prompt differ
 by 605 output tokens on average and by 1634 at worst — the uncompressed arm is far noisier

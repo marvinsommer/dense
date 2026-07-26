@@ -16,6 +16,8 @@ Compression still helps when there is barely any prose to compress; it just help
 
 ## Results
 
+![Horizontal bars: output tokens for each of eight runs plus arm means. Every dense run is below every control run except one.](../img/agentic-runs-dark.svg)
+
 ```
 run         out_tok  turns  wall_s  db_loc  gate
 none-1       50,217     65     604     978  PASS
@@ -73,12 +75,16 @@ everything the model emitted across the 8 clean runs:
 | none | 3,543 | 354,587 | 329,541 (92.9%) | **0.99%** |
 | dense | 1,509 | 291,859 | 238,690 (81.8%) | **0.51%** |
 
+![Stacked bars: characters emitted by kind. File edits are 92% of the control arm and 81% of the dense arm; prose is about 1%.](../img/agentic-composition-dark.svg)
+
 Tool calls, 4 runs per arm:
 
 | arm | Edit | Bash | Read | Write |
 |---|---:|---:|---:|---:|
 | none | 205 | 109 | 24 | 10 |
 | dense | 168 | 116 | 14 | 8 |
+
+![Horizontal grouped bars: tool calls per arm. Edit 205 vs 168, Bash 109 vs 116, Read 24 vs 14, Write 10 vs 8.](../img/agentic-toolmix-dark.svg)
 
 Three things follow:
 

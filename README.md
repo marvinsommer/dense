@@ -20,6 +20,8 @@ as three independent readings of a task-shaped effect, not as points on one curv
 
 ## Results
 
+![Horizontal bars: DENSE output-token reduction by task shape. Chat Q&A 82%, six-model coding validation 55%, agentic build 19%.](img/effect-by-task-shape-dark.svg)
+
 ![Grouped bar chart: output tokens per pass for six models across the none, dense, caveman and ponytail arms. DENSE is the shortest bar on every Claude model.](img/tokens-by-model-dark.svg)
 
 ![Grouped bar chart: output tokens versus the no-skill control per model. Bars left of zero are savings; DENSE runs -47% to -63% on the Claude models and -9% on laguna.](img/delta-by-model-dark.svg)
@@ -37,7 +39,9 @@ against caveman's 2,009 and ponytail's 2,368 — overhead paid on *every* turn.
 
 **The effect is strongly task-shaped.** A compression skill can only remove ceremony the model
 was going to write. Chat answers are almost entirely ceremony; a 900-line database engine is
-almost entirely not.
+almost entirely not — on the agentic task, prose was ~1% of everything the model emitted:
+
+![Stacked bars: characters emitted by kind on the agentic task. File edits dominate at 92% and 81%; prose is about 1%.](img/agentic-composition-dark.svg)
 
 Tested and evolved on multistep tasks; real long-horizon use is not validated formally, only on
 an "output feels good to me" basis. If you are willing to contribute real-life stats, feel free!
