@@ -14,7 +14,9 @@ mkdir -p ~/.claude/skills/dense && cp SKILL.md ~/.claude/skills/dense/
 
 The claim it makes is narrow and testable: *terseness instructions save tokens; do they cost
 correctness?* Every number below comes from **executing model-written code against hidden
-tests** — never from reading the model's prose.
+tests** — never from reading the model's prose. The three figures in the table are **separate
+runs with different methodologies** — different models, task sets and controls — so read them
+as three independent readings of a task-shaped effect, not as points on one curve.
 
 ## Results
 
