@@ -1,0 +1,4 @@
+.benchhome/
+__pycache__/
+agentic/runs/
+*.pyc

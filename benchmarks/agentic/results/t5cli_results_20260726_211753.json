@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "model": "claude-opus-5",
+    "per_arm": 4,
+    "date": "2026-07-26T21:17:53.613471+00:00",
+    "transport": "claude CLI, CLAUDE.md quarantined"
+  },
+  "runs": [
+    {
+      "run": "none-1",
+      "arm": "none",
+      "dir": "/home/ubuntu/tokgen/bench5cli/none-1",
+      "out_tok": 50217,
+      "num_turns": 65,
+      "cost": 3.9495389999999997,
+      "is_error": false,
+      "session": "f87e0d25-fc0f-4252-b6db-38e129831b6e",
+      "wall_s": 604,
+      "gate": "PASS",
+      "db_loc": 978,
+      "suite_loc": 523
+    },
+    {
+      "run": "none-2",
+      "arm": "none",
+      "dir": "/home/ubuntu/tokgen/bench5cli/none-2",
+      "out_tok": 66413,
+      "num_turns": 99,
+      "cost": 5.311865500000002,
+      "is_error": false,
+      "session": "b84f1be6-1377-42a3-a917-ace05559d8a0",
+      "wall_s": 783,
+      "gate": "PASS",
+      "db_loc": 971,
+      "suite_loc": 516
+    },
+    {
+      "run": "none-3",
+      "arm": "none",
+      "dir": "/home/ubuntu/tokgen/bench5cli/none-3",
+      "out_tok": 62620,
+      "num_turns": 101,
+      "cost": 5.349038,
+      "is_error": false,
+      "session": "991c8671-9940-4d7a-be2a-9579c8254478",
+      "wall_s": 821,
+      "gate": "PASS",
+      "db_loc": 799,
+      "suite_loc": 624
+    },
+    {
+      "run": "none-4",
+      "arm": "none",
+      "dir": "/home/ubuntu/tokgen/bench5cli/none-4",
+      "out_tok": 50421,
+      "num_turns": 87,
+      "cost": 4.165218499999999,
+      "is_error": false,
+      "session": "fd3dab76-1c33-4ef3-84d4-277bc70288b1",
+      "wall_s": 640,
+      "gate": "PASS",
+      "db_loc": 907,
+      "suite_loc": 538
+    },
+    {
+      "run": "dense-1",
+      "arm": "dense",
+      "dir": "/home/ubuntu/tokgen/bench5cli/dense-1",
+      "out_tok": 44514,
+      "num_turns": 87,
+      "cost": 3.8670720000000003,
+      "is_error": false,
+      "session": "7700047c-5c65-41f8-bcf2-3a3bfc5df93e",
+      "wall_s": 557,
+      "gate": "PASS",
+      "db_loc": 839,
+      "suite_loc": 442
+    },
+    {
+      "run": "dense-2",
+      "arm": "dense",
+      "dir": "/home/ubuntu/tokgen/bench5cli/dense-2",
+      "out_tok": 49076,
+      "num_turns": 66,
+      "cost": 3.7688724999999996,
+      "is_error": false,
+      "session": "fd255106-b208-432b-bf62-f7b88f7e3616",
+      "wall_s": 585,
+      "gate": "PASS",
+      "db_loc": 1006,
+      "suite_loc": 481
+    },
+    {
+      "run": "dense-3",
+      "arm": "dense",
+      "dir": "/home/ubuntu/tokgen/bench5cli/dense-3",
+      "out_tok": 48584,
+      "num_turns": 93,
+      "cost": 4.191041499999999,
+      "is_error": false,
+      "session": "ea35e1a1-ccde-4bc1-9fe5-3c1aa4e7ff35",
+      "wall_s": 565,
+      "gate": "PASS",
+      "db_loc": 949,
+      "suite_loc": 452
+    },
+    {
+      "run": "dense-4",
+      "arm": "dense",
+      "dir": "/home/ubuntu/tokgen/bench5cli/dense-4",
+      "out_tok": 43553,
+      "num_turns": 64,
+      "cost": 3.5855544999999998,
+      "is_error": false,
+      "session": "aab098c8-756f-4a2e-9777-926c2a5fe0b2",
+      "wall_s": 512,
+      "gate": "PASS",
+      "db_loc": 728,
+      "suite_loc": 488
+    }
+  ]
+}
