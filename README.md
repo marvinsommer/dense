@@ -12,6 +12,10 @@ The claim it makes is narrow and testable: *terseness instructions save tokens; 
 correctness?* Everything below comes from **executing model-written code against hidden
 tests** — never from reading the model's prose.
 
+Tested and evolved on multistep tasks, real long horizon not validated formally, only on a
+"output feels good to me"/"trust me bro"-basis. If you are willing to contribute real life
+stats, feel free!
+
 ## Building the skill
 
 DENSE was not written in one sitting. It is the output of five phases across several months,
