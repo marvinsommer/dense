@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="img/dense-icon.svg" alt="DENSE" width="160">
+  <img src="img/dense-icon.svg" alt="DENSE" width="128">
 </p>
 
 # DENSE
 
 A ~550-token skill prompt that makes a coding model write less — less prose, less code, less
-ceremony — **without trading away correctness**. `SKILL.md` is the whole thing (MIT).
+ceremony — **without a noticeable impact on correctness**. `SKILL.md` is the whole thing (MIT).
 
 ```bash
 mkdir -p ~/.claude/skills/dense && cp SKILL.md ~/.claude/skills/dense/
@@ -44,7 +44,7 @@ almost entirely not — on the agentic task, prose was ~1% of everything the mod
 ![Stacked bars: characters emitted by kind on the agentic task. File edits dominate at 92% and 81%; prose is about 1%.](img/agentic-composition-dark.svg)
 
 Tested and evolved on multistep tasks; real long-horizon use is not validated formally, only on
-an "output feels good to me" basis. If you are willing to contribute real-life stats, feel free!
+an subjective basis. If you are willing to contribute real-life stats, feel free!
 
 ## Details
 
