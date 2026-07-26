@@ -22,6 +22,10 @@ prompts, **caveman** and **ponytail**:
 
 ![Grouped bar chart: output tokens per pass for six models across the none, dense, caveman and ponytail arms. DENSE is the shortest bar on every Claude model.](img/tokens-by-model-dark.svg)
 
+Tested and evolved on multistep tasks, real long horizon not validated formally, only on a
+"output feels good to me"/"trust me bro"-basis. If you are willing to contribute real life
+stats, feel free!
+
 ## Building the skill
 
 DENSE was not written in one sitting. It is the output of five phases across several months,
