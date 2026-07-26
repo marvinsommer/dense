@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="img/dense-icon.svg" alt="DENSE" width="160">
+</p>
+
 # DENSE
 
 A ~550-token skill prompt that makes a coding model write less — less prose, less code, less
@@ -11,6 +15,12 @@ mkdir -p ~/.claude/skills/dense && cp SKILL.md ~/.claude/skills/dense/
 The claim it makes is narrow and testable: *terseness instructions save tokens; do they cost
 correctness?* Everything below comes from **executing model-written code against hidden
 tests** — never from reading the model's prose.
+
+Six recent models — Opus 5, Opus 4.8, Sonnet 5, Sonnet 4.6, DeepSeek V4 Flash and Laguna
+S 2.1 — were benchmarked with no skill, with DENSE, and against two popular terseness
+prompts, **caveman** and **ponytail**:
+
+![Grouped bar chart: output tokens per pass for six models across the none, dense, caveman and ponytail arms. DENSE is the shortest bar on every Claude model.](img/tokens-by-model-dark.svg)
 
 ## Building the skill
 

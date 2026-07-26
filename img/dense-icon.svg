@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">DENSE compressed cube icon</title>
+  <desc id="desc">A transparent isometric cube with a glowing central cube and no arrows.</desc>
+
+  <defs>
+    <linearGradient id="outerStroke" x1="90" y1="70" x2="430" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2CCBFF"/>
+      <stop offset="0.48" stop-color="#4F7CFF"/>
+      <stop offset="1" stop-color="#8A4DFF"/>
+    </linearGradient>
+
+    <linearGradient id="coreTop" x1="190" y1="180" x2="320" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#80F2FF"/>
+      <stop offset="0.5" stop-color="#4D7CFF"/>
+      <stop offset="1" stop-color="#5D32D8"/>
+    </linearGradient>
+
+    <linearGradient id="coreLeft" x1="170" y1="220" x2="260" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#416DFF"/>
+      <stop offset="1" stop-color="#25116B"/>
+    </linearGradient>
+
+    <linearGradient id="coreRight" x1="260" y1="210" x2="350" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#765CFF"/>
+      <stop offset="1" stop-color="#32147F"/>
+    </linearGradient>
+
+    <radialGradient id="coreGlow" cx="50%" cy="46%" r="52%">
+      <stop offset="0" stop-color="#B6F6FF" stop-opacity=".95"/>
+      <stop offset=".35" stop-color="#5B7CFF" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#5B35FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <path d="M256 52 433 154v204L256 460 79 358V154Z" fill="#11183A" fill-opacity=".26" stroke="url(#outerStroke)" stroke-width="10" stroke-linejoin="round"/>
+
+  <path d="M256 158 341 207v98L256 354l-85-49v-98Z" fill="none" stroke="#8367FF" stroke-opacity=".65" stroke-width="4" stroke-dasharray="10 10" stroke-linejoin="round"/>
+
+  <circle cx="256" cy="256" r="106" fill="url(#coreGlow)" filter="url(#glow)"/>
+
+  <path d="M256 186 322 224 256 262 190 224Z" fill="url(#coreTop)" stroke="#C3F8FF" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M190 224 256 262v76l-66-38Z" fill="url(#coreLeft)" stroke="#8DDFFF" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M322 224 256 262v76l66-38Z" fill="url(#coreRight)" stroke="#8EB7FF" stroke-width="4" stroke-linejoin="round"/>
+</svg>
