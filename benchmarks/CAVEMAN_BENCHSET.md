@@ -129,9 +129,11 @@ difference in what is being measured.
 - **10 prompts, 3 trials, one model.** No confidence intervals are reported because the
   upstream statistic (median of 3, then mean across prompts) does not support them well.
 - **Chat-shaped prompts only.** All 10 are single-turn questions whose entire deliverable is
-  prose. This is the maximum-compressible-surface case. On agentic tool-loop tasks where the
-  deliverable is code, the same DENSE skill measured ≈0% reduction (see [`AGENTIC_BENCH.md`](AGENTIC_BENCH.md), where
-  visible prose was 0.21% of billed output). Do not generalise 82% to agentic work.
+  prose. This is the maximum-compressible-surface case. On an agentic tool-loop task where the
+  deliverable is code, the same DENSE skill measured **−19%** (see
+  [`AGENTIC_BENCH.md`](AGENTIC_BENCH.md), where prose was ~1% of everything the model emitted).
+  The saving is real there too, but roughly a quarter the size — do not generalise 82% to
+  agentic work.
 - **`num_turns: 1` by construction.** Tools are disabled, so this says nothing about
   multi-turn or tool-using behaviour.
 
