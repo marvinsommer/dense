@@ -29,7 +29,6 @@ See the full [DeepSWE methodology and results](benchmarks/DEEPSWE.md). Supersede
 write-ups and their raw runners/data are preserved in the [archive](benchmarks/archive/).
 
 ## Quickstart
-## Quick comparison
 
 | CLI                                  | Strongest `SYSTEM.md` method                              |            Preserves built-in prompt? | Weaker file fallback                      |
 | ------------------------------------ | --------------------------------------------------------- | ------------------------------------: | ----------------------------------------- |
