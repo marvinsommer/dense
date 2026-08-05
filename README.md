@@ -4,57 +4,44 @@
 
 # DENSE
 
-A ~550-token skill prompt that makes a coding model write less — less prose, less code, less
-ceremony — **without a noticeable impact on correctness**. `SKILL.md` is the whole thing (MIT).
+A compact system prompt that makes a coding model write less — less prose, less code, less
+ceremony — while preserving correctness and required validation. [`SYSTEM.md`](SYSTEM.md) is
+the canonical prompt (MIT).
 
-```bash
-mkdir -p ~/.claude/skills/dense && cp SKILL.md ~/.claude/skills/dense/
-# or paste its body in as a system prompt for any model
-```
+## Current result
 
-The claim it makes is narrow and testable: *terseness instructions save tokens; do they cost
-correctness?* Every number below comes from **executing model-written code against hidden
-tests** — never from reading the model's prose. The three figures in the table are **separate
-runs with different methodologies** — different models, task sets and controls — so read them
-as three independent readings of a task-shaped effect, not as points on one curve.
+The latest benchmark applies DENSE as global system context to Claude Code on 20 DeepSWE v1.1
+tasks, with four replicates per condition and hidden grading.
 
-## Results
+| measure | baseline | DENSE | change |
+|---|---:|---:|---:|
+| pass rate (tasks / 20) | 14.50 | 14.00 | −0.5 tasks |
+| pure agent time / task | 27.81 min | 20.13 min | **−27.6%** |
+| input tokens / task | 11.98M | 7.86M | **−34.3%** |
+| output tokens / task | 82.3k | 61.1k | **−25.8%** |
+| rounds / task | 92.0 | 72.1 | **−21.6%** |
+| estimated price / task | $9.79 | $6.73 | **−31.3%** |
 
-![Horizontal bars: DENSE output-token reduction by task shape. Chat Q&A 82%, six-model coding validation 55%, agentic build 19%.](img/effect-by-task-shape-dark.svg)
+The efficiency reductions are consistent across replicates. The pass difference is within run
+noise, so this benchmark supports a process-efficiency result, not an accuracy claim.
 
-![Grouped bar chart: output tokens per pass for six models across the none, dense, caveman and ponytail arms. DENSE is the shortest bar on every Claude model.](img/tokens-by-model-dark.svg)
+See the full [DeepSWE methodology and results](benchmarks/DEEPSWE.md). Superseded benchmark
+write-ups and their raw runners/data are preserved in the [archive](benchmarks/archive/).
 
-![Grouped bar chart: output tokens versus the no-skill control per model. Bars left of zero are savings; DENSE runs -47% to -63% on the Claude models and -9% on laguna.](img/delta-by-model-dark.svg)
+## Quickstart
+## Quick comparison
 
-![Column chart: skill prompt cost per turn. DENSE 553 tokens, caveman 2,009, ponytail 2,368.](img/prompt-cost-dark.svg)
+| CLI                                  | Strongest `SYSTEM.md` method                              |            Preserves built-in prompt? | Weaker file fallback                      |
+| ------------------------------------ | --------------------------------------------------------- | ------------------------------------: | ----------------------------------------- |
+| **Claude Code**                      | `claude --append-system-prompt-file SYSTEM.md`            |                                   Yes | Copy to `CLAUDE.md`                       |
+| **Claude Code — replacement**        | `claude --system-prompt-file SYSTEM.md`                   |                                    No | Copy to `CLAUDE.md`                       |
+| **GitHub Copilot CLI**               | **[HACKY WORKAROUND]** Use the Copilot SDK with `systemMessage`                  |                  Yes with append mode | **[RECOMMENDED]** Copy to `.github/copilot-instructions.md` |
+| **GitHub Copilot CLI — replacement** | **[HACKY WORKAROUND]** Copilot SDK with `systemMessage.mode = "replace"`         |                                    No | **[RECOMMENDED]** Copy to `.github/copilot-instructions.md` |
+| **OpenAI Codex CLI**                 | Load the contents into `developer_instructions`           |                                   Yes | Copy to `AGENTS.md`                       |
+| **OpenAI Codex CLI — replacement**   | `codex -c 'model_instructions_file="/path/to/SYSTEM.md"'` |                                    No | Copy to `AGENTS.md`                       |
+| **OpenCode — recommended**           | Add `"instructions": ["SYSTEM.md"]` to `opencode.json`    |                                   Yes | Copy to `AGENTS.md`                       |
+| **OpenCode — replacement**           | Set the primary agent’s `"prompt": "{file:./SYSTEM.md}"`  | No—replaces that agent’s stock prompt | Copy to `AGENTS.md`                       |
 
-| measurement | task shape | DENSE effect |
-|---|---|---|
-| [six-model validation](benchmarks/DENSE_BENCHSET.md) | 10 coding tasks, hidden tests | **−47% to −63%** on frontier Claude models |
-| [chat prompts](benchmarks/CAVEMAN_BENCHSET.md) | single-turn Q&A | **−82%** (caveman −62% on the same suite) |
-| [agentic build](benchmarks/AGENTIC_BENCH.md) | 21-requirement engine, mostly file edits | **−19%** |
+## License
 
-DENSE also costs a quarter of what the alternatives cost to install: 553 tokens per turn
-against caveman's 2,009 and ponytail's 2,368 — overhead paid on *every* turn.
-
-**The effect is strongly task-shaped.** A compression skill can only remove ceremony the model
-was going to write. Chat answers are almost entirely ceremony; a 900-line database engine is
-almost entirely not — on the agentic task, prose was ~1% of everything the model emitted:
-
-![Stacked bars: characters emitted by kind on the agentic task. File edits dominate at 92% and 81%; prose is about 1%.](img/agentic-composition-dark.svg)
-
-Tested and evolved on multistep tasks; real long-horizon use is not validated formally, only on
-a subjective basis. If you are willing to contribute real-life stats, feel free!
-
-## Details
-
-Full methodology, per-model and per-task tables, raw data, runners and caveats live in
-[**`benchmarks/`**](benchmarks/):
-
-- [`DENSE_BENCHSET.md`](benchmarks/DENSE_BENCHSET.md) — the six-model validation run: how the
-  skill was built, results by model and task, the method, and the caveats. **Single pass per
-  cell; read the caveats before quoting any number.**
-- [`CAVEMAN_BENCHSET.md`](benchmarks/CAVEMAN_BENCHSET.md) — caveman's own 10-prompt suite, run
-  through the Claude Code CLI against a verified clean control.
-- [`AGENTIC_BENCH.md`](benchmarks/AGENTIC_BENCH.md) — a long, low-prose, file-edit-dominated
-  agentic task, where the compressible surface is smallest.
+MIT. See [LICENSE](LICENSE).

@@ -27,7 +27,7 @@ verbatim at [`chat/LICENSE.caveman`](chat/LICENSE.caveman):
 > Copyright (c) 2026 Julius Brussee
 
 That file covers `chat/prompts.json`, `chat/run_upstream.py`, `chat/skills/caveman.md` and the
-derived `chat/run_cli.py`. The repository's own [`LICENSE`](../LICENSE) (Copyright (c) 2026
+derived `chat/run_cli.py`. The repository's own [`LICENSE`](../../LICENSE) (Copyright (c) 2026
 Marvin Sommer) covers everything else.
 
 If the caveman authors would prefer these files be fetched at runtime rather than vendored,
@@ -35,5 +35,5 @@ If the caveman authors would prefer these files be fetched at runtime rather tha
 
 ## DENSE
 
-`chat/skills/dense.md` is a copy of this repository's own `SKILL.md`, duplicated so the
-benchmark runner is self-contained. If the two drift, `../../SKILL.md` is authoritative.
+`chat/skills/dense.md` is a copy of this repository's own `SYSTEM.md`, duplicated so the
+benchmark runner is self-contained. If the two drift, `../../SYSTEM.md` is authoritative.

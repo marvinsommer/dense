@@ -84,9 +84,9 @@ against nothing.
 | laguna-s-2.1 † | ponytail | 0.952 | 2,024 | +63% | 1,630 | 0.08 |
 
 
-![Grouped bar chart: output tokens per pass for six models across the none, dense, caveman and ponytail arms. DENSE is the shortest bar on every Claude model.](../img/tokens-by-model-dark.svg)
+![Grouped bar chart: output tokens per pass for six models across the none, dense, caveman and ponytail arms. DENSE is the shortest bar on every Claude model.](../../img/tokens-by-model-dark.svg)
 
-![Grouped bar chart: output tokens versus the no-skill control per model. Bars left of zero are savings; DENSE runs -47% to -63% on the Claude models and -1% on laguna.](../img/delta-by-model-dark.svg)
+![Grouped bar chart: output tokens versus the no-skill control per model. Bars left of zero are savings; DENSE runs -47% to -63% on the Claude models and -1% on laguna.](../../img/delta-by-model-dark.svg)
 
 † Not comparable to the other rows — see caveats. deepseek-v4-flash was served by GMICloud
 (fp8) with provider fallback disabled; laguna-s-2.1 by Poolside, both via OpenRouter.
@@ -106,7 +106,7 @@ caveman's 2,009 and ponytail's 2,368 — a quarter to a third — and it still c
 than either on every Claude model. Prompt overhead is paid on *every turn*, so on short
 sessions the rivals can cost more in prompt than they save in output.
 
-![Column chart: skill prompt cost per turn. DENSE 553 tokens, caveman 2,009, ponytail 2,368.](../img/prompt-cost-dark.svg)
+![Column chart: skill prompt cost per turn. DENSE 553 tokens, caveman 2,009, ponytail 2,368.](../../img/prompt-cost-dark.svg)
 
 
 **No skill wins everywhere.** Ponytail beats DENSE on sonnet-4-6 and deepseek, and is close
@@ -154,7 +154,7 @@ A useful sanity check runs through the tables below: where a task fails, it usua
 
 ### opus-4-8
 
-![Per-task output tokens for opus-4-8, four arms side by side.](../img/tasks-opus-4-8-dark.svg)
+![Per-task output tokens for opus-4-8, four arms side by side.](../../img/tasks-opus-4-8-dark.svg)
 
 
 | task | tests | none | dense | caveman | ponytail |
@@ -185,7 +185,7 @@ with no skill against 3,264 — the same solution, four times less deliberation 
 
 ### opus-5
 
-![Per-task output tokens for opus-5, four arms side by side.](../img/tasks-opus-5-dark.svg)
+![Per-task output tokens for opus-5, four arms side by side.](../../img/tasks-opus-5-dark.svg)
 
 
 | task | tests | none | dense | caveman | ponytail |
@@ -215,7 +215,7 @@ tokens/turn it costs more than it saves and lands $0.07 *above* the no-skill arm
 
 ### sonnet-4-6
 
-![Per-task output tokens for sonnet-4-6, four arms side by side.](../img/tasks-sonnet-4-6-dark.svg)
+![Per-task output tokens for sonnet-4-6, four arms side by side.](../../img/tasks-sonnet-4-6-dark.svg)
 
 
 | task | tests | none | dense | caveman | ponytail |
@@ -250,7 +250,7 @@ where it used 3,264 on opus-4-8. One draw went down a long path. It is the reaso
 
 ### sonnet-5
 
-![Per-task output tokens for sonnet-5, four arms side by side.](../img/tasks-sonnet-5-dark.svg)
+![Per-task output tokens for sonnet-5, four arms side by side.](../../img/tasks-sonnet-5-dark.svg)
 
 
 | task | tests | none | dense | caveman | ponytail |
@@ -281,7 +281,7 @@ versus 5,042 with DENSE, same score.
 
 ### deepseek-v4-flash @ GMICloud (fp8, provider pinned)
 
-![Per-task output tokens for deepseek-flash-gmicloud, four arms side by side.](../img/tasks-deepseek-flash-gmicloud-dark.svg)
+![Per-task output tokens for deepseek-flash-gmicloud, four arms side by side.](../../img/tasks-deepseek-flash-gmicloud-dark.svg)
 
 
 | task | tests | none | dense | caveman | ponytail |
@@ -321,7 +321,7 @@ model writing much more without scoring better.
 
 ### laguna-s-2.1 (Poolside) — not comparable, see caveats
 
-![Per-task output tokens for laguna-s-2-1, four arms side by side.](../img/tasks-laguna-s-2-1-dark.svg)
+![Per-task output tokens for laguna-s-2-1, four arms side by side.](../../img/tasks-laguna-s-2-1-dark.svg)
 
 
 | task | tests | none | dense | caveman | ponytail |
@@ -417,7 +417,7 @@ punish one, and the last exists to catch a skill that wins by saying less.
 | `optimistic-ui` | selection (control) | choose which of N proposed operations are safe to apply, as JSON — no code written | **the anti-terseness control.** Abstaining earns only the unsafe-item exclusions, so a skill cannot win by answering less. Depth is measured by accuracy on a tracked discriminating item |
 | `path-resolver` | security validation | harden a naive path resolver against traversal, absolute paths, backslash separators, percent-encodings and NUL bytes, while still resolving honest input canonically | rejection classes and their exact codes are enumerated in the spec, so a skipped case is unambiguous. Pure string logic, no filesystem access |
 
-![Column chart: number of hidden requirement tests per task, ranging from 5 to 21.](../img/tests-per-task-dark.svg)
+![Column chart: number of hidden requirement tests per task, ranging from 5 to 21.](../../img/tests-per-task-dark.svg)
 
 
 Three of them carry frozen files (`data/`, `lib/`) that sit outside the writable paths: the
