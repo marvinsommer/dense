@@ -15,11 +15,11 @@ tasks, with four replicates per condition and hidden grading.
 
 | measure | baseline | DENSE | change |
 |---|---:|---:|---:|
-| pass rate (tasks / 20) | 14.50 | 14.00 | −0.5 tasks |
+| pass rate (tasks / 20) | 16.25 | 15.75 | −0.5 tasks |
 | pure agent time / task | 27.81 min | 20.13 min | **−27.6%** |
-| input tokens / task | 11.98M | 7.86M | **−34.3%** |
-| output tokens / task | 82.3k | 61.1k | **−25.8%** |
-| rounds / task | 92.0 | 72.1 | **−21.6%** |
+| input tokens / task | 11.93M | 7.77M | **−34.9%** |
+| output tokens / task | 82.2k | 60.4k | **−26.5%** |
+| rounds / task | 91.8 | 71.4 | **−22.2%** |
 | estimated price / task | $9.79 | $6.73 | **−31.3%** |
 
 The efficiency reductions are consistent across replicates. The pass difference is within run

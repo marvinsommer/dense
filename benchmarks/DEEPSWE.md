@@ -155,14 +155,14 @@ Per-task pure agent time is the normalized figure used for comparison.
 
 | measure                        | baseline (n=4) | dense (n=4)  | delta                     |
 | ------------------------------ | -------------- | ------------ | ------------------------- |
-| **pass**                       | 14.50 ± 1.29   | 14.00 ± 1.15 | −0.5 tasks (inside noise) |
+| **pass**                       | 16.25 ± 0.96   | 15.75 ± 1.50 | −0.5 tasks (inside noise) |
 | **pure agent time / task**     | 27.81 min      | 20.13 min    | **−27.6%**                |
-| **input tokens / task**        | 11.98M         | 7.86M        | **−34.3%**                |
-| **output tokens / task**       | 82.3k          | 61.1k        | **−25.8%**                |
-| **rounds / task**              | 92.0           | 72.1         | **−21.6%**                |
+| **input tokens / task**        | 11.93M         | 7.77M        | **−34.9%**                |
+| **output tokens / task**       | 82.2k          | 60.4k        | **−26.5%**                |
+| **rounds / task**              | 91.8           | 71.4         | **−22.2%**                |
 | **est. price / task**          | $9.79 ± 0.71   | $6.73 ± 0.26 | **−31.3%**                |
 | **est. price / run (×20)**     | $195.92        | $134.57      | **−31.3%**                |
-| **est. price / task _passed_** | $13.51         | $9.61        | **−28.9%**                |
+| **est. price / task _passed_** | $12.05         | $8.55        | **−29.0%**                |
 
 **Price is an estimate, not an invoice.** These runs executed on a Max
 subscription, so no per-token charge was actually incurred. The figure is the
@@ -181,16 +181,16 @@ track the means closely, so the saving is not an artefact of the tail.
 
 | arm               | condition               | CLI     | pass      | pure agent time (sum) | avg / task    | median / task | wall-clock as run |
 | ----------------- | ----------------------- | ------- | --------- | --------------------- | ------------- | ------------- | ----------------- |
-| r01               | skill offered (control) | 2.1.220 | 15        | 525.4 min             | 26.27 min     | 23.06 min     | 258 min           |
-| r02               | baseline                | 2.1.220 | 16        | 553.5 min             | 27.68 min     | 25.99 min     | 332 min           |
-| r03               | baseline                | 2.1.222 | 13        | 559.8 min             | 27.99 min     | 25.63 min     | 435 min ⚠         |
-| r04               | baseline                | 2.1.222 | 14        | 585.8 min             | 29.29 min     | 29.84 min     | 310 min ⚠         |
-| v3-r1             | dense                   | 2.1.220 | 15        | 397.9 min             | 19.90 min     | 16.83 min     | 146 min           |
-| v3-r2             | dense                   | 2.1.221 | 13        | 392.1 min             | 19.61 min     | 17.22 min     | 1206 min ⚠        |
-| v3-r3             | dense                   | 2.1.221 | 13        | 399.5 min             | 19.97 min     | 16.71 min     | 188 min           |
-| v3-r4             | dense                   | 2.1.222 | 15        | 420.5 min             | 21.02 min     | 16.84 min     | 250 min ⚠         |
-| **baseline mean** |                         |         | **14.50** | **556.1 min**         | **27.81 min** |               |                   |
-| **dense mean**    |                         |         | **14.00** | **402.5 min**         | **20.13 min** |               |                   |
+| r01               | skill offered (control) | 2.1.220 | 17        | 525.4 min             | 26.27 min     | 23.06 min     | 258 min           |
+| r02               | baseline                | 2.1.220 | 17        | 553.5 min             | 27.68 min     | 25.99 min     | 332 min           |
+| r03               | baseline                | 2.1.222 | 15        | 559.8 min             | 27.99 min     | 25.63 min     | 435 min ⚠         |
+| r04               | baseline                | 2.1.222 | 16        | 585.8 min             | 29.29 min     | 29.84 min     | 310 min ⚠         |
+| v3-r1             | dense                   | 2.1.220 | 17        | 397.9 min             | 19.90 min     | 16.83 min     | 146 min           |
+| v3-r2             | dense                   | 2.1.221 | 15        | 392.1 min             | 19.61 min     | 17.22 min     | 1206 min ⚠        |
+| v3-r3             | dense                   | 2.1.221 | 14        | 399.5 min             | 19.97 min     | 16.71 min     | 188 min           |
+| v3-r4             | dense                   | 2.1.222 | 17        | 420.5 min             | 21.02 min     | 16.84 min     | 250 min ⚠         |
+| **baseline mean** |                         |         | **16.25** | **556.1 min**         | **27.81 min** |               |                   |
+| **dense mean**    |                         |         | **15.75** | **402.5 min**         | **20.13 min** |               |                   |
 
 ⚠ = wall-clock inflated by an infrastructure stall or a contract-gate stop, not
 by agent work. r03 lost ~3.7 h to an OAuth expiry; v3-r2 lost ~17 h to an
@@ -210,10 +210,10 @@ measuring it that way.
 | v3-r2             | 7.42M      | 7.29M      | 59.5k     | 70.6     |
 | v3-r3             | 7.64M      | 7.50M      | 60.7k     | 72.6     |
 | v3-r4             | 8.33M      | 8.19M      | 62.2k     | 73.0     |
-| **baseline mean** | **11.98M** | **11.79M** | **82.3k** | **92.0** |
-| **dense mean**    | **7.86M**  | **7.73M**  | **61.1k** | **72.1** |
+| **baseline mean** | **11.93M** | **11.75M** | **82.2k** | **91.8** |
+| **dense mean**    | **7.77M**  | **7.64M**  | **60.4k** | **71.4** |
 
-Cached tokens are 98.4% of input in both conditions. The saving is fewer and
+Cached tokens are approximately 98.4% of input in both conditions. The saving is fewer and
 shorter turns, not a cheaper prompt.
 
 ### 2.4 Effect size against replicate spread
@@ -221,14 +221,14 @@ shorter turns, not a cheaper prompt.
 | measure                | baseline         | dense            | ranges                       |
 | ---------------------- | ---------------- | ---------------- | ---------------------------- |
 | pure agent time / task | 27.81 ± 1.24 min | 20.13 ± 0.62 min | disjoint                     |
-| input / task           | 11.98M ± 0.75M   | 7.86M ± 0.41M    | disjoint                     |
-| output / task          | 82.3k ± 3.1k     | 61.1k ± 1.2k     | disjoint                     |
-| rounds / task          | 92.0 ± 3.0       | 72.1 ± 1.1       | disjoint                     |
-| **pass**               | **14.50 ± 1.29** | **14.00 ± 1.15** | **almost fully overlapping** |
+| input / task           | 11.93M ± 0.75M   | 7.77M ± 0.41M    | disjoint                     |
+| output / task          | 82.2k ± 3.1k     | 60.4k ± 1.2k     | disjoint                     |
+| rounds / task          | 91.8 ± 3.0       | 71.4 ± 1.1       | disjoint                     |
+| **pass**               | **16.25 ± 0.96** | **15.75 ± 1.50** | **almost fully overlapping** |
 
 Every efficiency measure separates by 6–7 replicate standard deviations. The
 pass difference is 0.4 standard deviations — smaller than the spread _within_
-the baseline condition, which itself ranges 13 to 16.
+the baseline condition, which itself ranges 15 to 17.
 
 ---
 
@@ -250,8 +250,8 @@ DeepSWE v1.1 inventory, shown for calibration.
 | fd-deterministic-multi-key-sorting                  | rust       | medium-easy | 0.58     | PASS | PASS | FAIL | FAIL | FAIL  | FAIL  | PASS  | FAIL  | 2/4  | 1/4   |
 | happy-dom-abort-pending-body-reads                  | typescript | easy        | 0.91     | PASS | PASS | PASS | PASS | PASS  | PASS  | PASS  | PASS  | 4/4  | 4/4   |
 | katex-multicolumn-array-spans                       | javascript | hard        | 0.30     | PASS | PASS | PASS | PASS | PASS  | PASS  | FAIL  | PASS  | 4/4  | 3/4   |
-| langchain-request-coalescing                        | python     | hard        | 0.41     | FAIL | FAIL | FAIL | FAIL | FAIL  | FAIL  | FAIL  | FAIL  | 0/4  | 0/4   |
-| narwhals-rolling-window-suite                       | python     | easy        | 0.89     | FAIL | FAIL | FAIL | FAIL | FAIL  | FAIL  | FAIL  | FAIL  | 0/4  | 0/4   |
+| langchain-request-coalescing                        | python     | hard        | 0.41     | PASS | FAIL | PASS | PASS | PASS  | PASS  | FAIL  | PASS  | 3/4  | 3/4   |
+| narwhals-rolling-window-suite                       | python     | easy        | 0.89     | PASS | PASS | PASS | PASS | PASS  | PASS  | PASS  | PASS  | 4/4  | 4/4   |
 | numba-stencil-boundary-modes                        | python     | medium-easy | 0.65     | PASS | PASS | PASS | PASS | PASS  | PASS  | PASS  | PASS  | 4/4  | 4/4   |
 | pest-character-class-coalescing                     | rust       | hard        | 0.22     | PASS | PASS | PASS | PASS | PASS  | PASS  | PASS  | PASS  | 4/4  | 4/4   |
 | quill-shared-toolbar-focus                          | typescript | hard        | 0.25     | PASS | FAIL | FAIL | FAIL | PASS  | FAIL  | FAIL  | PASS  | 1/4  | 2/4   |
@@ -275,7 +275,7 @@ DeepSWE v1.1 inventory, shown for calibration.
 | fd-deterministic-multi-key-sorting                  | 8.31M      | 5.75M       | 58k         | 46k          | 71.5        | 56.0         |
 | happy-dom-abort-pending-body-reads                  | 16.12M     | 9.07M       | 77k         | 59k          | 121.5       | 79.0         |
 | katex-multicolumn-array-spans                       | 8.92M      | 7.01M       | 77k         | 62k          | 78.0        | 73.3         |
-| langchain-request-coalescing                        | 10.29M     | 5.56M       | 99k         | 69k          | 80.8        | 59.5         |
+| langchain-request-coalescing                        | 9.39M      | 3.71M       | 99.5k       | 55.1k       | 75.5        | 45.8         |
 | narwhals-rolling-window-suite                       | 18.13M     | 12.55M      | 102k        | 75k          | 131.0       | 110.8        |
 | numba-stencil-boundary-modes                        | 9.77M      | 7.01M       | 71k         | 54k          | 83.0        | 69.5         |
 | pest-character-class-coalescing                     | 8.24M      | 6.08M       | 66k         | 49k          | 77.8        | 69.8         |
@@ -291,10 +291,10 @@ DeepSWE v1.1 inventory, shown for calibration.
 
 ### 3.1 The suite cannot resolve the accuracy question
 
-Of 20 tasks, **12 pass in all 8 runs and 3 fail in all 8**. Only 5 tasks ever
-flip, and they flip in both directions (one favours dense, two favour baseline,
-one splits evenly). No task passes 4/4 under one condition and fails 4/4 under
-the other. With 15 of 20 tasks carrying no signal, the measurement floor is
+Of 20 tasks, **13 pass in all 8 runs and 1 fail in all 8**. Only 6 tasks ever
+flip, and they flip in both directions (one favours dense, three favour baseline,
+two split evenly). No task passes 4/4 under one condition and fails 4/4 under
+the other. With 14 of 20 tasks carrying no signal, the measurement floor is
 roughly ±1.3 tasks and the effect being looked for is below it.
 
 ### 3.2 Efficiency is measured on a floor of successful runs only
@@ -307,7 +307,7 @@ and none was scored, but their compute is not in the totals.
 
 ### 3.3 Non-determinism is not controlled
 
-Temperature is not pinned and the corpus tasks have genuine ambiguity. The 5
+Temperature is not pinned and the corpus tasks have genuine ambiguity. The 6
 flipping tasks are the visible consequence.
 
 ### 3.4 CLI version is a confound
